@@ -56,18 +56,7 @@ jobs:
           name: protobuf
           path: |
             protobuf
-  export-parser:
-    runs-on: ubuntu-22.04
-    needs:
-      - generate-antlr-sources
-      - generate-grpc-sources
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/upload-artifact@v3
-        with:
-          name: parser
-          path: |
-            pkg/a2l/parser
+
   release:
     runs-on: ubuntu-22.04
     permissions:
@@ -75,13 +64,13 @@ jobs:
     needs:
       - build-windows
       - export-protobuf-definitions
-      - export-parser
+      - generate-antlr-sources
     steps:
       - uses: actions/checkout@v3
       - run: mkdir a2l_grpc
       - uses: actions/download-artifact@v3
         with:
-          name: parser
+          name: antlr4
           path: a2l_grpc/parser
       - uses: actions/download-artifact@v3
         with:
