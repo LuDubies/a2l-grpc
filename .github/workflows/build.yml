@@ -124,7 +124,6 @@ jobs:
       - build-linux
       - build-windows
       - export-protobuf-definitions
-    if: startsWith(github.ref, 'refs/tags/v')
     steps:
       - uses: actions/checkout@v3
       - run: mkdir a2l_grpc
@@ -145,7 +144,7 @@ jobs:
           rm -rf a2l_grpc
       - uses: ncipollo/release-action@v1
         with:
-          tag: ${{ github.ref_name }}
+          tag: test_layout
           commit: main
           artifacts: "a2l_grpc.tar.gz"
           bodyFile: "CHANGELOG.md"
