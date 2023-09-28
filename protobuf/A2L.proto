@@ -501,6 +501,10 @@ message InMeasurementType {
   repeated IdentType Identifier = 1 [json_name="Identifier"];
 }
 
+message LayoutType {
+  string IndexMode = 1 [json_name="IndexMode"];
+}
+
 message LeftShiftType {
   LongType BitCount = 1 [json_name="BitCount"];
 }
@@ -554,6 +558,7 @@ message MeasurementType {
   repeated IfDataType IF_DATA = 23 [json_name="IF_DATA"];
   optional MatrixDimType MATRIX_DIM = 24 [json_name="MATRIX_DIM"];
   optional EcuAddressExtensionType ECU_ADDRESS_EXTENSION = 25 [json_name="ECU_ADDRESS_EXTENSION"];
+  optional LayoutType LAYOUT = 26 [json_name="LAYOUT"];
 }
 
 message MemoryLayoutType {
