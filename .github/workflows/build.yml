@@ -87,5 +87,6 @@ jobs:
         with:
           tag: test_layout
           commit: main
+          allowUpdates: true
           artifacts: "a2l_grpc.tar.gz"
           bodyFile: "CHANGELOG.md"
