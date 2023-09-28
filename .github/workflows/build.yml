@@ -65,6 +65,7 @@ jobs:
       - build-windows
       - export-protobuf-definitions
       - generate-antlr-sources
+      - generate-grpc-sources
     steps:
       - uses: actions/checkout@v3
       - run: mkdir a2l_grpc
@@ -72,6 +73,10 @@ jobs:
         with:
           name: antlr4
           path: a2l_grpc/parser
+      - uses: actions/download-artifact@v3
+        with:
+          name: grpc
+          path: a2l_grpc/grpc
       - uses: actions/download-artifact@v3
         with:
           name: windows
