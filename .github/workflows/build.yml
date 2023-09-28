@@ -25,6 +25,9 @@ jobs:
             pkg/a2l/protobuf
   build-windows:
     runs-on: windows-2019
+    needs:
+      - generate-antlr-sources
+      - generate-grpc-sources
     steps:
       - uses: actions/checkout@v3
       - uses: actions/download-artifact@v3
@@ -55,6 +58,9 @@ jobs:
             protobuf
   export-parser:
     runs-on: ubuntu-22.04
+    needs:
+      - generate-antlr-sources
+      - generate-grpc-sources
     steps:
       - uses: actions/checkout@v3
       - uses: actions/upload-artifact@v3
